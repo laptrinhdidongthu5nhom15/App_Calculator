@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_marginRight="20dp"
+    android:layout_marginLeft="20dp">
+    <Button
+        android:textSize="15sp"
+        android:text="Trở về"
+        android:id="@+id/btn_trove"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_below="@+id/btn_trove"
+        android:orientation="horizontal"
+        android:id="@+id/lnLayouttren"
+        android:weightSum="3"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_marginTop="10dp">
+        <Button
+            android:background="#348AE7"
+            android:layout_weight="1"
+            android:id="@+id/btn_dodai"
+            android:textSize="15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ðộ dài"/>
+        <Button
+
+            android:layout_weight="1"
+            android:id="@+id/btn_khoiluong"
+            android:textSize="15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Khối lượng"/>
+        <Button
+
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:id="@+id/btn_thoigian"
+
+            android:textSize="15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thời gian"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/lnLayouttren"
+        android:layout_marginLeft="5dp"
+        android:id="@+id/tv_inputDoDai"
+        android:hint="000"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <RadioGroup
+        android:layout_marginLeft="5dp"
+        android:layout_below="@+id/tv_inputDoDai"
+        android:id="@+id/rdgroup_tren"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:checked="true"
+            android:text="km"
+            android:id="@+id/rdbtn_km"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:checked="false"
+            android:text="m"
+            android:id="@+id/rdbtn_m"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:checked="false"
+            android:text="cm"
+            android:id="@+id/rdbtn_cm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RadioGroup>
+    <TextView
+        android:layout_marginLeft="5dp"
+        android:layout_below="@+id/tv_inputDoDai"
+        android:id="@+id/tv_outputDoDai"
+        android:layout_marginTop="50dp"
+        android:hint="000"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <RadioGroup
+        android:layout_below="@+id/tv_outputDoDai"
+        android:layout_marginLeft="5dp"
+
+        android:id="@+id/rdgroup_duoi"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:checked="false"
+            android:text="km"
+            android:id="@+id/rdbtn_kmKetQua"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:checked="true"
+            android:text="m"
+            android:id="@+id/rdbtn_mKetQua"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:checked="false"
+            android:text="cm"
+            android:id="@+id/rdbtn_cmKetQua"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_marginTop="150dp"
+        android:layout_below="@+id/lnLayouttren"
+        android:orientation="horizontal"
+        android:id="@+id/lnLayoutduoi"
+        android:weightSum="8"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+        <Button
+            android:id="@+id/btn_xoaTatCa"
+            android:textSize="15sp"
+            android:text="AC"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:text="C"
+            android:textSize="15sp"
+            android:id="@+id/btn_XoaPTCuoi"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+    <LinearLayout
+
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/lnLayoutduoi"
+        android:orientation="horizontal"
+        android:id="@+id/lnLayoutduoi2"
+        android:weightSum="3"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <Button
+            android:id="@+id/btn_so7"
+            android:text="7"
+            android:textSize="20sp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btn_so8"
+            android:text="8"
+            android:textSize="20sp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btn_so9"
+            android:text="9"
+            android:textSize="20sp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+    <LinearLayout
+
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/lnLayoutduoi2"
+        android:orientation="horizontal"
+        android:id="@+id/lnLayoutduoi3"
+        android:weightSum="3"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <Button
+            android:id="@+id/btn_so4"
+            android:text="4"
+            android:textSize="20sp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btn_so5"
+            android:text="5"
+            android:textSize="20sp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btn_so6"
+            android:text="6"
+            android:textSize="20sp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+    <LinearLayout
+
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/lnLayoutduoi3"
+        android:orientation="horizontal"
+        android:id="@+id/lnLayoutduoi4"
+        android:weightSum="3"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <Button
+            android:id="@+id/btn_so1"
+            android:text="1"
+            android:textSize="20sp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btn_so2"
+            android:text="2"
+            android:textSize="20sp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btn_so3"
+            android:text="3"
+            android:textSize="20sp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+    <LinearLayout
+
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/lnLayoutduoi4"
+        android:orientation="horizontal"
+        android:id="@+id/lnLayoutduoi5"
+        android:weightSum="8"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <Button
+            android:id="@+id/btn_so0"
+            android:text="0"
+            android:textSize="20sp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btn_dauPhay"
+            android:text=","
+            android:textSize="20sp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</RelativeLayout>

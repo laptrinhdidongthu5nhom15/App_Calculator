@@ -2,8 +2,11 @@ package nhom15.calculator;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.BaseInputConnection;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.Stack;
@@ -11,7 +14,7 @@ import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private TextView mTvDauVao;
+    private EditText mEdtDauVao;
     private TextView mTvKetQua;
     private Button mBtn0;
     private Button mBtn1;
@@ -30,10 +33,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button mBtnMoNgoac;
     private Button mBtnDongNguoc;
     private Button mBtnBang;
+    private Button mBtnXoa1KyTu;
+    private Button mXoaHet;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        init();
         setEventClick();
 
     }
@@ -57,7 +63,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mBtnDongNguoc = (Button)findViewById(R.id.btn_dongngoac);
         mBtnBang = (Button)findViewById(R.id.btn_bang);
         mTvKetQua = (TextView)findViewById(R.id.tv_ketqua);
-        mTvDauVao = (TextView)findViewById(R.id.tv_dauvao);
+        mEdtDauVao = (EditText) findViewById(R.id.edt_dauvao);
+        mBtnXoa1KyTu = (Button)findViewById(R.id.btn_xoatungkitu);
+        mXoaHet = (Button)findViewById(R.id.btn_xoahet);
     }
 
     public void setEventClick(){
@@ -78,6 +86,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mBtnMoNgoac.setOnClickListener(this);
         mBtnDongNguoc.setOnClickListener(this);
         mBtnBang.setOnClickListener(this);
+        mBtnXoa1KyTu.setOnClickListener(this);
+        mXoaHet.setOnClickListener(this);
     }
 
 
@@ -85,57 +95,79 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_khong:
-                mTvDauVao.append("0");
+                mEdtDauVao.append("0");
+                break;
             case R.id.btn_mot:
-                mTvDauVao.append("1");
+                mEdtDauVao.append("1");
+                break;
             case R.id.btn_hai:
-                mTvDauVao.append("2");
+                mEdtDauVao.append("2");
+                break;
             case R.id.btn_ba:
-                mTvDauVao.append("3");
+                mEdtDauVao.append("3");
+                break;
             case R.id.btn_bon:
-                mTvDauVao.append("4");
+                mEdtDauVao.append("4");
+                break;
             case R.id.btn_nam:
-                mTvDauVao.append("5");
+                mEdtDauVao.append("5");
+                break;
             case R.id.btn_sau:
-                mTvDauVao.append("6");
+                mEdtDauVao.append("6");
+                break;
             case R.id.btn_bay:
-                mTvDauVao.append("7");
+                mEdtDauVao.append("7");
+                break;
             case R.id.btn_tam:
-                mTvDauVao.append("8");
+                mEdtDauVao.append("8");
+                break;
             case R.id.btn_chin:
-                mTvDauVao.append("9");
+                mEdtDauVao.append("9");
+                break;
             case R.id.btn_mongoac:
-                mTvDauVao.append("(");
+                mEdtDauVao.append("(");
+                break;
             case R.id.btn_dongngoac:
-                mTvDauVao.append(")");
+                mEdtDauVao.append(")");
+                break;
             case R.id.btn_cong:
-                mTvDauVao.append("+");
+                mEdtDauVao.append("+");
+                break;
             case R.id.btn_tru:
-                mTvDauVao.append("-");
+                mEdtDauVao.append("-");
+                break;
             case R.id.btn_nhan:
-                mTvDauVao.append("*");
+                mEdtDauVao.append("*");
+                break;
             case R.id.btn_chia:
-                mTvDauVao.append("/");
+                mEdtDauVao.append("/");
+                break;
+            case R.id.btn_xoahet:
+                mEdtDauVao.setText("");
+                break;
+            case R.id.btn_xoatungkitu:
+                BaseInputConnection inputConnection = new BaseInputConnection(mEdtDauVao, true);
+                inputConnection.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_DEL));
+                break;
             case R.id.btn_bang:
             {
-                String input = mTvDauVao.getText().toString();
+                String input = mEdtDauVao.getText().toString();
                 Stack<String> A = KhoiTao(input);
                 if(KiemTraDuLieuNhap(input)) {
                     String kq = Tinh(A);
                     mTvKetQua.setText(kq);
                 }
                 else {
-                    mTvKetQua.setText("input không hợp lệ");
+                    mTvKetQua.setText("Lỗi!!!");
                 }
+                break;
             }
 
         }
     }
 
     public static Stack<String> KhoiTao(String input) {
-
         int n = input.length();
-
         Stack<String> queueChar = new Stack<String>();
         Stack<String> Stack = new Stack<String>();
 
@@ -202,9 +234,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 			System.out.print(queueChar.pop()+" ");
 		}*/
         return queueChar;
-
     }
-
 
     public static int KTUuTien(String x) {
         if(x.equals("(") || x.equals(")")) {
@@ -216,7 +246,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(x.equals("*") || x.equals("/")) {
             return 2;
         }
-        return 3;	//dau am
+        return 3;	//chua xu ly
     }
 
     @SuppressWarnings("unused")
@@ -270,14 +300,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
         while(!StackTinh.isEmpty()) {
-            System.out.print("kq=");
             dapSo = StackTinh.pop().toString();
         }
 
         return dapSo;
     }
 
-    // thuy
+    // kiem tra du lieu phep tinh nhap vao co hop le ko
     protected static boolean KiemTraDuLieuNhap(String chuoi) {
         int n= chuoi.length();
         Boolean flag = true;
@@ -287,7 +316,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         if(chuoi.charAt(0)<48 || chuoi.charAt(0)>57)
         {
-            if(chuoi.charAt(0)=='-') {
+            if(chuoi.charAt(0)=='-' || chuoi.charAt(0)=='(') {
                 flag = true;
             }
             else {
@@ -300,13 +329,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         for(int i=0;i<chuoi.length()-1;i++)
         {
-            if((chuoi.charAt(i)=='+'||chuoi.charAt(i)=='-'||chuoi.charAt(i)=='*'||chuoi.charAt(i)=='/')&&
+            if((chuoi.charAt(i)=='+'||chuoi.charAt(i)=='-'||chuoi.charAt(i)=='*'||chuoi.charAt(i)=='/')
+                    &&
                     (chuoi.charAt(i+1)=='+'||chuoi.charAt(i+1)=='-'||chuoi.charAt(i+1)=='*'||chuoi.charAt(i+1)=='/'))
             {
                 flag = false;
                 break;
             }
-
         }
         return flag;
     }
