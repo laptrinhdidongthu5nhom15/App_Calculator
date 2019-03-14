@@ -1,5 +1,6 @@
 package nhom15.calculator;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -35,12 +36,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button mBtnBang;
     private Button mBtnXoa1KyTu;
     private Button mXoaHet;
+    private Button mTinhNangCao;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
         setEventClick();
+
+        mTinhNangCao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, nhom15.calculator.CNNangCaoActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -66,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mEdtDauVao = (EditText) findViewById(R.id.edt_dauvao);
         mBtnXoa1KyTu = (Button)findViewById(R.id.btn_xoatungkitu);
         mXoaHet = (Button)findViewById(R.id.btn_xoahet);
+        mTinhNangCao = (Button)this.findViewById(R.id.btn_tinhnangcao);
     }
 
     public void setEventClick(){
@@ -88,6 +99,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mBtnBang.setOnClickListener(this);
         mBtnXoa1KyTu.setOnClickListener(this);
         mXoaHet.setOnClickListener(this);
+
     }
 
 

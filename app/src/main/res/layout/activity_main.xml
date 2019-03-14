@@ -52,7 +52,7 @@
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
 
         <Button
-            android:id="@+id/btn_nangcao"
+            android:id="@+id/btn_tinhnangcao"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="..."
