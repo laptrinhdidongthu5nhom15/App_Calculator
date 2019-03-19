@@ -35,9 +35,8 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_marginTop="8sp"
-            android:text="180"
-            android:textSize="35sp"
-            android:gravity="right"/>
+            android:gravity="right"
+            android:textSize="35sp" />
     </RelativeLayout>
 
 
@@ -167,9 +166,9 @@
             android:id="@+id/btn_daumu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="^"
-            android:textSize="40sp"
-            android:layout_weight="1"/>
+            android:textSize="40sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -280,12 +279,12 @@
             android:layout_weight="1"/>
 
         <Button
-            android:id="@+id/btn_dauphay"
+            android:id="@+id/btn_daucham"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=","
-            android:textSize="40sp"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:text="."
+            android:textSize="40sp" />
 
         <Button
             android:id="@+id/btn_luuketqua"
