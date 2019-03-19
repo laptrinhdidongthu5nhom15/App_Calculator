@@ -251,7 +251,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Stack.pop();	// xoa "("
                 }
             }
-            else if(A[i].equals("^") || A[i].equals("√") || A[i].equals("+") || A[i].equals("*") || A[i].equals("/") /*|| (A[i].equals("-") && i>0)*/) {
+            else if(A[i].equals("^") || A[i].equals("√") || A[i].equals("+") || A[i].equals("*") || A[i].equals("/")) {
                 if(Stack.isEmpty()) {	// rong
                     Stack.push(A[i]);
                 }
